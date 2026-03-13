@@ -2,15 +2,24 @@
 // 内嵌学习内容数据（避免 file:// 协议下的 fetch 限制）
 // 重构版本：场景驱动 + 精简聚焦
 const contentData = {
-  "title": "Claude Code 学习系统",
-  "description": "场景驱动 · 精简聚焦 · 实战导向",
+  "title": "AI PM Journey",
+  "description": "新时代懂技术的 PM · 技术力 + 产品力 = 竞争力",
+  "paths": [
+    { "id": "tech", "name": "技术路径", "icon": "🛠️", "desc": "Claude Code + AI 工具" },
+    { "id": "pm", "name": "PM 路径", "icon": "💼", "desc": "AI PM 核心能力" }
+  ],
   "categories": [
-    { "id": "quick-start", "name": "快速开始", "icon": "⚡" },
-    { "id": "scenarios", "name": "场景导航", "icon": "🎯" },
-    { "id": "tools", "name": "核心工具", "icon": "🛠️" },
-    { "id": "deep-dive", "name": "深度学习", "icon": "📖" },
-    { "id": "ecosystem", "name": "生态系统", "icon": "🌐" },
-    { "id": "practice", "name": "实战案例", "icon": "⚔️" }
+    // 技术路径分类
+    { "id": "quick-start", "name": "快速开始", "icon": "⚡", "path": "tech" },
+    { "id": "scenarios", "name": "场景导航", "icon": "🎯", "path": "tech" },
+    { "id": "tools", "name": "核心工具", "icon": "🛠️", "path": "tech" },
+    { "id": "deep-dive", "name": "深度学习", "icon": "📖", "path": "tech" },
+    { "id": "ecosystem", "name": "生态系统", "icon": "🌐", "path": "tech" },
+    { "id": "practice", "name": "实战案例", "icon": "⚔️", "path": "tech" },
+    // PM 路径分类
+    { "id": "pm-basics", "name": "PM 基础", "icon": "📖", "path": "pm" },
+    { "id": "pm-skills", "name": "PM 技能", "icon": "🎯", "path": "pm" },
+    { "id": "pm-practice", "name": "PM 实战", "icon": "⚔️", "path": "pm" }
   ],
   "modules": [
     // ============ 快速开始 ============
@@ -1835,6 +1844,709 @@ const contentData = {
           "explanation": "三层防护：社区审核机制、内置安全检测模块、用户对 skill 来源的鉴别能力。"
         }
       ]
+    },
+    // ============ PM 路径 ============
+    // ============ PM 基础 ============
+    {
+      "id": "pm-role",
+      "title": "PM 角色认知",
+      "description": "新时代 PM 的核心定位与能力模型",
+      "category": "pm-basics",
+      "level": 1,
+      "content": [
+        {
+          "title": "什么是 PM",
+          "description": "PM 是产品的「CEO」，负责产品从 0 到 1 的全过程。不是「画原型的」，不是「写文档的」，而是对产品结果负责的人。",
+          "memoryCard": {
+            "title": "PM 核心职责",
+            "rows": [
+              ["需求洞察", "发现用户痛点，定义问题"],
+              ["方案设计", "提出解决方案，规划功能"],
+              ["项目管理", "协调资源，推动落地"],
+              ["数据驱动", "用数据验证效果，迭代优化"],
+              ["沟通协调", "跨部门协作，对齐目标"]
+            ]
+          }
+        },
+        {
+          "title": "PM vs 传统角色",
+          "description": "新时代 PM 和传统项目经理、产品经理的区别：",
+          "memoryCard": {
+            "title": "角色对比",
+            "rows": [
+              ["项目经理", "管进度、管资源", "交付导向"],
+              ["传统产品经理", "画原型、写 PRD", "功能导向"],
+              ["新时代 PM", "懂技术、懂数据、懂用户", "价值导向"],
+              ["AI PM", "还要懂 AI 能力边界", "智能化导向"]
+            ]
+          }
+        },
+        {
+          "title": "新时代 PM 的技术力",
+          "description": "AI 时代，PM 需要懂技术但不一定要会写代码。关键是要能用技术语言和研发沟通。",
+          "memoryCard": {
+            "title": "技术力清单",
+            "rows": [
+              ["AI 工具", "会用 Claude Code、Cursor、ChatGPT"],
+              ["API 理解", "知道 API 是什么、怎么对接"],
+              ["数据查询", "会写基础 SQL 查数据"],
+              ["原型工具", "会用 Figma、墨刀、即时设计"],
+              ["文档能力", "能写清晰的需求文档和技术方案"]
+            ]
+          }
+        },
+        {
+          "title": "PM 能力模型",
+          "description": "一个完整的 PM 需要具备的能力框架：",
+          "tips": [
+            "产品能力：需求分析、用户研究、产品规划",
+            "技术能力：理解技术原理、评估可行性",
+            "数据能力：指标定义、数据分析、A/B 测试",
+            "沟通能力：跨部门协作、向上汇报、向下管理",
+            "学习能力：快速学习新领域、持续迭代"
+          ]
+        }
+      ],
+      "quiz": [
+        {
+          "text": "PM 的核心职责是什么？",
+          "options": ["画原型图", "写代码", "对产品结果负责", "做测试"],
+          "correct": 2,
+          "explanation": "PM 是产品的「CEO」，对产品结果负责，不只是画原型或写文档。"
+        },
+        {
+          "text": "新时代 PM 和传统产品经理的主要区别？",
+          "options": ["工资更高", "懂技术、懂数据、懂用户", "职位名称不同", "工作内容一样"],
+          "correct": 1,
+          "explanation": "新时代 PM 需要懂技术、懂数据、懂用户，是价值导向而非功能导向。"
+        },
+        {
+          "text": "PM 需要会写代码吗？",
+          "options": ["必须会", "完全不需要", "不需要，但要懂技术原理", "看公司要求"],
+          "correct": 2,
+          "explanation": "PM 不需要会写代码，但需要懂技术原理，能用技术语言和研发沟通。"
+        },
+        {
+          "text": "以下哪个不是 PM 的核心能力？",
+          "options": ["需求分析", "代码开发", "数据驱动", "跨部门协作"],
+          "correct": 1,
+          "explanation": "代码开发是研发的工作，PM 需要懂技术但不需要亲自开发。"
+        },
+        {
+          "text": "AI PM 相比普通 PM 还需要什么能力？",
+          "options": ["财务知识", "法律知识", "懂 AI 能力边界", "设计能力"],
+          "correct": 2,
+          "explanation": "AI PM 需要特别理解 AI 的能力边界，知道什么能做、什么不能做。"
+        }
+      ]
+    },
+    {
+      "id": "ai-basics",
+      "title": "AI 基础概念",
+      "description": "PM 必须了解的 AI/ML 基础知识",
+      "category": "pm-basics",
+      "level": 1,
+      "content": [
+        {
+          "title": "什么是 AI / ML",
+          "description": "AI（人工智能）是让机器模拟人类智能。ML（机器学习）是实现 AI 的一种方法，让机器从数据中学习。",
+          "memoryCard": {
+            "title": "AI 相关术语",
+            "rows": [
+              ["AI", "人工智能", "机器模拟人类智能"],
+              ["ML", "机器学习", "从数据中学习规律"],
+              ["DL", "深度学习", "多层神经网络学习"],
+              ["LLM", "大语言模型", "ChatGPT、Claude 等"],
+              ["GenAI", "生成式 AI", "能生成内容的 AI"]
+            ]
+          }
+        },
+        {
+          "title": "LLM 能做什么",
+          "description": "大语言模型（如 ChatGPT、Claude）的能力边界：",
+          "memoryCard": {
+            "title": "LLM 能力清单",
+            "rows": [
+              ["✅ 擅长", "文本生成、翻译、总结、问答"],
+              ["✅ 擅长", "代码生成、调试、解释"],
+              ["✅ 擅长", "创意写作、头脑风暴"],
+              ["⚠️ 一般", "数学计算、逻辑推理"],
+              ["❌ 不擅长", "实时信息、精确事实、物理世界"]
+            ]
+          }
+        },
+        {
+          "title": "常见 AI 产品形态",
+          "description": "目前主流的 AI 产品形态：",
+          "tips": [
+            "对话助手：ChatGPT、Claude、文心一言",
+            "内容生成：Midjourney、Sora、Runway",
+            "智能客服：自动回答用户问题",
+            "推荐系统：抖音、淘宝的个性化推荐",
+            "辅助工具：Notion AI、Copilot"
+          ]
+        },
+        {
+          "title": "AI 的局限性",
+          "description": "AI 不是万能的，PM 需要了解其局限性：",
+          "memoryCard": {
+            "title": "AI 局限性",
+            "rows": [
+              ["幻觉问题", "可能生成虚假信息"],
+              ["实时性", "无法获取最新信息"],
+              ["精确性", "不适合需要 100% 准确的场景"],
+              ["隐私数据", "不能处理敏感个人信息"],
+              ["成本", "大规模使用成本较高"]
+            ]
+          }
+        }
+      ],
+      "quiz": [
+        {
+          "text": "LLM 是什么？",
+          "options": ["一种编程语言", "大语言模型", "数据库", "操作系统"],
+          "correct": 1,
+          "explanation": "LLM（Large Language Model）是大语言模型，如 ChatGPT、Claude。"
+        },
+        {
+          "text": "以下哪个是 LLM 擅长的？",
+          "options": ["实时股市行情", "文本生成和翻译", "精确数学计算", "物理世界操作"],
+          "correct": 1,
+          "explanation": "LLM 擅长文本生成、翻译、总结等文本处理任务。"
+        },
+        {
+          "text": "AI 的「幻觉」问题是指？",
+          "options": ["AI 会做梦", "AI 可能生成虚假信息", "AI 会生病", "AI 会消失"],
+          "correct": 1,
+          "explanation": "幻觉（Hallucination）是指 AI 可能生成看起来合理但实际上是虚假的信息。"
+        },
+        {
+          "text": "以下哪个场景不适合用 AI？",
+          "options": ["智能客服", "医疗诊断（100%准确）", "内容生成", "推荐系统"],
+          "correct": 1,
+          "explanation": "需要 100% 准确的场景（如医疗诊断）不适合完全依赖 AI。"
+        }
+      ]
+    },
+    // ============ PM 技能 ============
+    {
+      "id": "prompt-engineering",
+      "title": "Prompt Engineering",
+      "description": "写好提示词，让 AI 更好地为你工作",
+      "category": "pm-skills",
+      "level": 2,
+      "content": [
+        {
+          "title": "什么是 Prompt",
+          "description": "Prompt（提示词）是你给 AI 的指令。写好 Prompt 是新时代 PM 的必备技能。",
+          "memoryCard": {
+            "title": "Prompt 要素",
+            "rows": [
+              ["角色", "让 AI 扮演什么角色"],
+              ["任务", "要 AI 做什么"],
+              ["背景", "提供必要的上下文"],
+              ["格式", "期望的输出格式"],
+              ["约束", "限制条件"]
+            ]
+          }
+        },
+        {
+          "title": "写好 Prompt 的原则",
+          "description": "写好 Prompt 的核心原则：",
+          "tips": [
+            "清晰具体：避免模糊表述",
+            "提供示例：给 AI 看你想要的格式",
+            "分步拆解：复杂任务拆成多步",
+            "迭代优化：根据结果不断调整",
+            "控制长度：太长会导致 AI 忘记前面"
+          ]
+        },
+        {
+          "title": "常用 Prompt 技巧",
+          "description": "实用的 Prompt 技巧：",
+          "memoryCard": {
+            "title": "技巧清单",
+            "rows": [
+              ["角色扮演", "\"你是一个资深 PM...\""],
+              ["Few-shot", "给 2-3 个示例"],
+              ["思维链", "\"请一步步思考...\""],
+              ["结构化输出", "\"用表格形式输出\""],
+              ["追问", "\"你确定吗？再检查一遍\""]
+            ]
+          },
+          "practice": {
+            "title": "示例：写 PRD",
+            "code": "# 角色\n你是一个资深 PM，擅长写清晰的 PRD。\n\n# 任务\n帮我写一个「用户登录功能」的 PRD。\n\n# 要求\n1. 包含功能描述、用户故事、验收标准\n2. 用表格形式输出\n3. 语言简洁，避免空话"
+          }
+        },
+        {
+          "title": "PM 常用 Prompt 模板",
+          "description": "PM 日常工作中可以用到的 Prompt 模板：",
+          "tips": [
+            "需求分析：\"分析以下用户反馈，提取核心需求...\"",
+            "竞品分析：\"对比 A 和 B 产品的功能差异...\"",
+            "PRD 生成：\"根据以下需求，生成 PRD 文档...\"",
+            "数据分析：\"分析以下数据，找出问题并给出建议...\"",
+            "会议总结：\"总结以下会议内容，列出行动项...\""
+          ]
+        }
+      ],
+      "quiz": [
+        {
+          "text": "写好 Prompt 的核心原则是什么？",
+          "options": ["写得越长越好", "清晰具体、提供示例", "用专业术语", "让 AI 自己猜"],
+          "correct": 1,
+          "explanation": "写好 Prompt 要清晰具体，必要时提供示例让 AI 理解你想要的格式。"
+        },
+        {
+          "text": "Few-shot 是什么技巧？",
+          "options": ["拍照片", "给 AI 几个示例", "少说废话", "快速提问"],
+          "correct": 1,
+          "explanation": "Few-shot 是给 AI 几个示例，让它理解你想要的格式和风格。"
+        },
+        {
+          "text": "Prompt 太长会怎样？",
+          "options": ["AI 会更聪明", "AI 可能忘记前面的内容", "AI 会拒绝回答", "没有影响"],
+          "correct": 1,
+          "explanation": "Prompt 太长会导致 AI 忘记前面的内容，影响回答质量。"
+        },
+        {
+          "text": "「思维链」技巧的作用是？",
+          "options": ["让 AI 更快", "让 AI 一步步思考", "让 AI 更短", "让 AI 更幽默"],
+          "correct": 1,
+          "explanation": "思维链（Chain of Thought）让 AI 一步步思考，提高复杂问题的准确率。"
+        }
+      ]
+    },
+    {
+      "id": "ai-product-design",
+      "title": "AI 产品设计",
+      "description": "如何设计 AI 驱动的产品功能",
+      "category": "pm-skills",
+      "level": 2,
+      "content": [
+        {
+          "title": "判断是否需要 AI",
+          "description": "不是所有功能都需要 AI，PM 需要判断是否值得：",
+          "memoryCard": {
+            "title": "AI 适用判断",
+            "rows": [
+              ["✅ 适合", "内容生成、智能推荐、对话交互"],
+              ["✅ 适合", "图像识别、语音处理、数据分析"],
+              ["❌ 不适合", "确定性规则、精确计算、简单逻辑"],
+              ["⚠️ 慎重", "需要 100% 准确的场景"],
+              ["⚠️ 慎重", "涉及隐私数据的场景"]
+            ]
+          }
+        },
+        {
+          "title": "AI 功能设计原则",
+          "description": "设计 AI 功能时要遵循的原则：",
+          "memoryCard": {
+            "title": "设计原则",
+            "rows": [
+              ["渐进式", "先做简单版本，逐步增强"],
+              ["可控性", "用户能理解、能干预 AI 输出"],
+              ["反馈机制", "用户能告诉 AI 哪里做得不好"],
+              ["预期管理", "不要过度承诺 AI 能力"],
+              ["降级方案", "AI 失败时有备选方案"]
+            ]
+          }
+        },
+        {
+          "title": "AI 功能体验设计",
+          "description": "AI 功能的用户体验设计要点：",
+          "tips": [
+            "加载状态：AI 生成需要时间，要有加载提示",
+            "置信度展示：让用户知道 AI 的确定程度",
+            "可编辑性：AI 输出应该可以被用户修改",
+            "历史记录：保留 AI 生成的历史版本",
+            "撤销功能：用户可以撤销 AI 的操作"
+          ]
+        },
+        {
+          "title": "AI 功能评估指标",
+          "description": "如何衡量 AI 功能的效果：",
+          "memoryCard": {
+            "title": "评估指标",
+            "rows": [
+              ["准确率", "AI 输出的正确程度"],
+              ["使用率", "用户使用该功能的频率"],
+              ["采纳率", "用户采纳 AI 输出的比例"],
+              ["修改率", "用户修改 AI 输出的比例"],
+              ["满意度", "用户对 AI 功能的满意程度"]
+            ]
+          }
+        }
+      ],
+      "quiz": [
+        {
+          "text": "以下哪个场景适合用 AI？",
+          "options": ["银行转账（100%准确）", "智能客服", "简单数学计算", "密码验证"],
+          "correct": 1,
+          "explanation": "智能客服适合用 AI，而银行转账、简单计算、密码验证需要 100% 准确，不适合。"
+        },
+        {
+          "text": "AI 功能的「可控性」是指？",
+          "options": ["AI 可以控制用户", "用户能理解和干预 AI 输出", "AI 完全自动化", "用户无法干预"],
+          "correct": 1,
+          "explanation": "可控性是指用户能理解 AI 的输出，并能够干预和修改。"
+        },
+        {
+          "text": "为什么 AI 功能需要降级方案？",
+          "options": ["让产品更复杂", "AI 可能失败或不可用", "增加开发成本", "没有原因"],
+          "correct": 1,
+          "explanation": "AI 可能失败或不可用，降级方案确保用户体验不受影响。"
+        },
+        {
+          "text": "\"采纳率\"指标衡量什么？",
+          "options": ["AI 的准确率", "用户采纳 AI 输出的比例", "用户使用产品的频率", "AI 的响应速度"],
+          "correct": 1,
+          "explanation": "采纳率衡量用户采纳 AI 输出的比例，反映 AI 输出的质量。"
+        }
+      ]
+    },
+    {
+      "id": "data-driven",
+      "title": "数据驱动决策",
+      "description": "用数据说话，做出正确的产品决策",
+      "category": "pm-skills",
+      "level": 2,
+      "content": [
+        {
+          "title": "什么是数据驱动",
+          "description": "数据驱动 = 用数据发现问题、验证假设、评估效果，而不是凭感觉做决策。",
+          "memoryCard": {
+            "title": "数据驱动流程",
+            "rows": [
+              ["1. 定义指标", "确定要关注的核心指标"],
+              ["2. 收集数据", "埋点、统计、调研"],
+              ["3. 分析数据", "找规律、发现问题"],
+              ["4. 提出假设", "基于数据提出改进方向"],
+              ["5. 验证效果", "A/B 测试验证假设"]
+            ]
+          }
+        },
+        {
+          "title": "常用产品指标",
+          "description": "PM 需要关注的核心指标：",
+          "memoryCard": {
+            "title": "指标分类",
+            "rows": [
+              ["用户增长", "DAU、MAU、新增用户"],
+              ["用户活跃", "使用时长、使用频次、留存率"],
+              ["商业价值", "转化率、ARPU、GMV"],
+              ["产品体验", "满意度、NPS、崩溃率"],
+              ["功能效果", "使用率、完成率、分享率"]
+            ]
+          }
+        },
+        {
+          "title": "A/B 测试基础",
+          "description": "A/B 测试是验证产品改动的科学方法：",
+          "tips": [
+            "定义假设：\"如果改 A，那么 B 会提升\"",
+            "设计实验：控制变量，只改一个因素",
+            "确定样本：样本太小结果不可靠",
+            "观察时间：至少一个完整周期",
+            "分析结果：看显著性，不要只看数字"
+          ]
+        },
+        {
+          "title": "数据陷阱",
+          "description": "PM 需要避免的数据陷阱：",
+          "memoryCard": {
+            "title": "常见陷阱",
+            "rows": [
+              ["虚荣指标", "看起来好看但没意义"],
+              ["幸存者偏差", "只看活下来的用户"],
+              ["相关非因果", "A 和 B 相关不代表 A 导致 B"],
+              ["样本偏差", "样本不代表整体"],
+              ["过度解读", "把随机波动当趋势"]
+            ]
+          }
+        }
+      ],
+      "quiz": [
+        {
+          "text": "数据驱动的核心是什么？",
+          "options": ["看报表", "用数据做决策，而非凭感觉", "收集更多数据", "让老板看数据"],
+          "correct": 1,
+          "explanation": "数据驱动的核心是用数据发现问题、验证假设、评估效果，而非凭感觉做决策。"
+        },
+        {
+          "text": "以下哪个是虚荣指标？",
+          "options": ["DAU", "累计注册用户数", "留存率", "转化率"],
+          "correct": 1,
+          "explanation": "累计注册用户数是虚荣指标，看起来很大但没有实际意义，DAU、留存率、转化率才是关键。"
+        },
+        {
+          "text": "A/B 测试的关键原则是什么？",
+          "options": ["同时改多个变量", "只改一个变量，控制其他不变", "不需要对照组", "凭感觉判断结果"],
+          "correct": 1,
+          "explanation": "A/B 测试要控制变量，只改一个因素，才能确定因果关系。"
+        },
+        {
+          "text": "\"相关非因果\"是什么意思？",
+          "options": ["A 导致 B", "A 和 B 相关不代表 A 导致 B", "A 和 B 没关系", "B 导致 A"],
+          "correct": 1,
+          "explanation": "相关非因果是指两个事物相关，但不代表一个导致另一个，可能有第三个因素。"
+        }
+      ]
+    },
+    {
+      "id": "cross-team",
+      "title": "跨团队协作",
+      "description": "与研发、设计、运营高效协作",
+      "category": "pm-skills",
+      "level": 2,
+      "content": [
+        {
+          "title": "与研发协作",
+          "description": "PM 和研发是最佳拍档，协作要点：",
+          "memoryCard": {
+            "title": "协作要点",
+            "rows": [
+              ["需求清晰", "PRD 写清楚，避免频繁变更"],
+              ["技术对齐", "评审时确认技术可行性"],
+              ["优先级明确", "什么是必须的，什么是可以等的"],
+              ["及时响应", "研发有问题要及时解答"],
+              ["尊重专业", "技术方案让研发决定"]
+            ]
+          }
+        },
+        {
+          "title": "与设计协作",
+          "description": "PM 和设计师协作要点：",
+          "tips": [
+            "明确目标：设计要解决什么问题",
+            "提供背景：用户是谁、场景是什么",
+            "给空间：不要画死了，让设计师发挥",
+            "及时反馈：设计稿出来后快速反馈",
+            "统一语言：用设计系统的术语沟通"
+          ]
+        },
+        {
+          "title": "与运营协作",
+          "description": "PM 和运营协作要点：",
+          "memoryCard": {
+            "title": "协作要点",
+            "rows": [
+              ["需求来源", "运营是重要的需求来源"],
+              ["数据共享", "共享用户反馈和数据"],
+              ["功能培训", "新功能上线要培训运营"],
+              ["活动配合", "产品功能支持运营活动"],
+              ["效果复盘", "一起复盘活动效果"]
+            ]
+          }
+        },
+        {
+          "title": "向上汇报",
+          "description": "PM 需要向老板/上级汇报工作：",
+          "tips": [
+            "结论先行：先说结论，再说细节",
+            "数据支撑：用数据说话，不要只讲故事",
+            "给出方案：不只是提问题，要给方案",
+            "管理预期：不要过度承诺",
+            "定期同步：不要等到出问题才汇报"
+          ]
+        }
+      ],
+      "quiz": [
+        {
+          "text": "PM 与研发协作时，最重要的是？",
+          "options": ["每天开会", "需求清晰、及时响应", "帮研发写代码", "监督研发工作"],
+          "correct": 1,
+          "explanation": "PM 与研发协作最重要的是需求清晰、及时响应，而不是过度干预技术实现。"
+        },
+        {
+          "text": "与设计师协作时，PM 应该？",
+          "options": ["画好原型让设计师照着做", "明确目标后给设计师发挥空间", "不跟设计师沟通", "自己设计"],
+          "correct": 1,
+          "explanation": "PM 应该明确目标和背景，然后给设计师发挥空间，不要把设计画死。"
+        },
+        {
+          "text": "向上汇报的正确做法是？",
+          "options": ["只报喜不报忧", "结论先行，用数据支撑", "事无巨细都说", "等老板问再说"],
+          "correct": 1,
+          "explanation": "向上汇报要结论先行、用数据支撑、给出方案，而不是只报喜或等老板问。"
+        },
+        {
+          "text": "运营反馈的问题，PM 应该？",
+          "options": ["忽略不管", "认真分析，给出解决方案", "让运营自己解决", "推给研发"],
+          "correct": 1,
+          "explanation": "运营是重要的需求来源，PM 应该认真分析运营反馈的问题并给出解决方案。"
+        }
+      ]
+    },
+    // ============ PM 实战 ============
+    {
+      "id": "pm-case-study",
+      "title": "AI 产品案例分析",
+      "description": "从真实案例中学习 AI 产品设计",
+      "category": "pm-practice",
+      "level": 3,
+      "content": [
+        {
+          "title": "成功案例：Notion AI",
+          "description": "Notion AI 是如何设计 AI 写作助手的：",
+          "memoryCard": {
+            "title": "关键设计点",
+            "rows": [
+              ["场景聚焦", "只做文档写作场景"],
+              ["渐进增强", "先补全，再生成，后改写"],
+              ["用户控制", "AI 建议由用户确认"],
+              ["上下文感知", "理解文档上下文"],
+              ["无感集成", "不打断用户工作流"]
+            ]
+          }
+        },
+        {
+          "title": "成功案例：GitHub Copilot",
+          "description": "GitHub Copilot 的产品设计亮点：",
+          "tips": [
+            "实时性：编码时实时给出建议",
+            "低干扰：不打断程序员的心流",
+            "可采纳：程序员可以选择采纳或忽略",
+            "学习性：从项目代码中学习风格",
+            "渐进信任：用得越多越准确"
+          ]
+        },
+        {
+          "title": "失败教训：AI 客服",
+          "description": "一些 AI 客服失败的原因：",
+          "memoryCard": {
+            "title": "失败原因",
+            "rows": [
+              ["过度承诺", "宣传能解决所有问题"],
+              ["能力不足", "实际解决率很低"],
+              ["缺乏降级", "无法转人工"],
+              ["用户挫败", "反复对话解决不了问题"],
+              ["信任崩塌", "用户对 AI 客服失去信心"]
+            ]
+          }
+        },
+        {
+          "title": "AI 产品设计教训",
+          "description": "从案例中学到的教训：",
+          "tips": [
+            "不要过度承诺：AI 不是万能的",
+            "场景要聚焦：不要什么都想做",
+            "必须有降级：AI 失败时有备选",
+            "用户体验优先：AI 是手段不是目的",
+            "持续迭代：AI 能力在进步，产品也要迭代"
+          ]
+        }
+      ],
+      "quiz": [
+        {
+          "text": "Notion AI 成功的关键是？",
+          "options": ["功能最多", "场景聚焦、用户控制", "价格最便宜", "广告最多"],
+          "correct": 1,
+          "explanation": "Notion AI 成功的关键是场景聚焦（只做文档写作）和用户控制（AI 建议由用户确认）。"
+        },
+        {
+          "text": "GitHub Copilot 的产品设计亮点是？",
+          "options": ["完全自动化", "实时建议、低干扰", "只能写简单代码", "必须完全采纳"],
+          "correct": 1,
+          "explanation": "Copilot 的亮点是实时给出建议、低干扰，程序员可以选择采纳或忽略。"
+        },
+        {
+          "text": "AI 客服失败的常见原因是？",
+          "options": ["AI 太聪明", "过度承诺、缺乏降级方案", "用户太少", "技术太先进"],
+          "correct": 1,
+          "explanation": "AI 客服常失败于过度承诺（说能解决所有问题）和缺乏降级方案（无法转人工）。"
+        },
+        {
+          "text": "AI 产品设计的核心原则是？",
+          "options": ["AI 功能越多越好", "用户体验优先，AI 是手段", "完全自动化", "不需要人工介入"],
+          "correct": 1,
+          "explanation": "AI 产品设计的核心是用户体验优先，AI 只是提升体验的手段，不是目的。"
+        }
+      ]
+    },
+    {
+      "id": "pm-interview",
+      "title": "PM 面试准备",
+      "description": "AI 时代 PM 面试的核心问题和回答策略",
+      "category": "pm-practice",
+      "level": 3,
+      "content": [
+        {
+          "title": "常见面试问题",
+          "description": "PM 面试常见的问题类型：",
+          "memoryCard": {
+            "title": "问题类型",
+            "rows": [
+              ["产品思维", "如何设计一个功能？"],
+              ["数据分析", "如何用数据验证假设？"],
+              ["技术理解", "这个功能技术可行性？"],
+              ["沟通协作", "如何处理与研发的分歧？"],
+              ["AI 理解", "AI 能做什么不能做什么？"]
+            ]
+          }
+        },
+        {
+          "title": "产品思维问题",
+          "description": "回答产品思维问题的框架：",
+          "tips": [
+            "明确用户：谁会用这个功能？",
+            "定义问题：要解决什么痛点？",
+            "评估价值：为什么值得做？",
+            "设计方案：怎么实现？",
+            "衡量成功：怎么判断成功？"
+          ],
+          "practice": {
+            "title": "示例问题",
+            "code": "Q: 如何设计一个「智能回复」功能？\n\nA:\n1. 用户：需要快速回复消息的人\n2. 问题：打字慢、没时间、场景多\n3. 价值：提升沟通效率\n4. 方案：基于上下文生成 3 个候选回复\n5. 成功指标：回复采纳率 > 50%"
+          }
+        },
+        {
+          "title": "AI 相关问题",
+          "description": "AI 时代 PM 面试可能被问到的问题：",
+          "memoryCard": {
+            "title": "AI 面试问题",
+            "rows": [
+              ["你用哪些 AI 工具？", "ChatGPT、Claude、Cursor 等"],
+              ["AI 能做什么？", "文本、代码、图像生成"],
+              ["AI 不能做什么？", "实时信息、精确计算"],
+              ["如何设计 AI 功能？", "场景聚焦 + 用户控制"],
+              ["AI 产品挑战？", "幻觉、成本、隐私"]
+            ]
+          }
+        },
+        {
+          "title": "面试加分项",
+          "description": "让面试官印象深刻的加分项：",
+          "tips": [
+            "展示作品：有实际的产品案例",
+            "数据思维：用数据支撑决策",
+            "技术理解：能和技术人员深度交流",
+            "AI 应用：展示你如何用 AI 提升效率",
+            "持续学习：关注行业动态，有见解"
+          ]
+        }
+      ],
+      "quiz": [
+        {
+          "text": "回答产品设计问题的正确顺序是？",
+          "options": ["方案→用户→问题", "用户→问题→方案→衡量", "衡量→方案→用户", "随便说"],
+          "correct": 1,
+          "explanation": "回答产品设计问题应该：用户→问题→价值→方案→衡量成功。"
+        },
+        {
+          "text": "AI 时代 PM 面试的加分项是？",
+          "options": ["只会画原型", "展示 AI 应用能力和持续学习", "不关心技术", "只看工资"],
+          "correct": 1,
+          "explanation": "AI 时代 PM 加分项包括：展示 AI 应用能力、技术理解、数据思维和持续学习。"
+        },
+        {
+          "text": "\"AI 能做什么\"这个问题的回答重点是？",
+          "options": ["AI 什么都能做", "AI 什么都做不了", "展示你对 AI 能力边界的理解", "背诵 AI 定义"],
+          "correct": 2,
+          "explanation": "这个问题的关键是展示你对 AI 能力边界的理解，知道能做什么和不能做什么。"
+        }
+      ]
     }
   ]
 };
@@ -1843,6 +2555,7 @@ const app = {
     currentModule: null,
     previousView: 'modules-view',
     currentCategory: 'all',
+    currentPath: 'all', // 当前选中的学习路径
 
     // 初始化应用
     init() {
@@ -1857,9 +2570,15 @@ const app = {
         const container = document.getElementById('category-tabs');
         if (!container) return;
 
+        // 根据当前路径过滤分类
+        let categories = contentData.categories;
+        if (this.currentPath !== 'all') {
+            categories = categories.filter(cat => cat.path === this.currentPath);
+        }
+
         let html = `<button class="category-tab ${this.currentCategory === 'all' ? 'active' : ''}" onclick="app.filterCategory('all')">全部</button>`;
 
-        contentData.categories.forEach(cat => {
+        categories.forEach(cat => {
             html += `<button class="category-tab ${this.currentCategory === cat.id ? 'active' : ''}" onclick="app.filterCategory('${cat.id}')">${cat.icon} ${cat.name}</button>`;
         });
 
@@ -1873,13 +2592,39 @@ const app = {
         this.renderModules();
     },
 
+    // 切换学习路径
+    switchPath(pathId) {
+        this.currentPath = pathId;
+        this.currentCategory = 'all'; // 切换路径时重置分类
+
+        // 更新路径按钮状态
+        document.querySelectorAll('.path-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.textContent.includes(
+                pathId === 'all' ? '全部' : (pathId === 'tech' ? '技术' : 'PM')
+            ));
+        });
+
+        this.renderCategories();
+        this.renderModules();
+    },
+
     // 渲染模块列表
     renderModules() {
         const grid = document.getElementById('module-grid');
         grid.innerHTML = '';
 
-        // 过滤模块
+        // 过滤模块（先按路径，再按分类）
         let modules = contentData.modules;
+
+        // 按路径过滤
+        if (this.currentPath !== 'all') {
+            const pathCategories = contentData.categories
+                .filter(cat => cat.path === this.currentPath)
+                .map(cat => cat.id);
+            modules = modules.filter(m => pathCategories.includes(m.category));
+        }
+
+        // 按分类过滤
         if (this.currentCategory !== 'all') {
             modules = modules.filter(m => m.category === this.currentCategory);
         }

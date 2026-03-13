@@ -491,7 +491,41 @@ body {
     display: flex;
     gap: 10px;
     justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     margin-top: 15px;
+}
+
+/* Path Switcher */
+.path-switcher {
+    display: flex;
+    gap: 8px;
+    background: rgba(255,255,255,0.1);
+    padding: 4px;
+    border-radius: 24px;
+    margin-right: 15px;
+}
+
+.path-btn {
+    padding: 8px 16px;
+    border: none;
+    background: transparent;
+    color: rgba(255,255,255,0.8);
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.path-btn:hover {
+    background: rgba(255,255,255,0.15);
+    color: white;
+}
+
+.path-btn.active {
+    background: white;
+    color: var(--primary);
+    font-weight: 600;
 }
 
 .nav-btn {

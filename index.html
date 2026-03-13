@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Claude Code 学习系统 - 掌握学习法</title>
+    <title>AI PM Journey - 新时代懂技术的 PM</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="container">
         <header class="header">
-            <h1>Claude Code 学习系统</h1>
-            <p class="subtitle">掌握学习法：学 → 测 → 补漏 → 再测 → 全掌握</p>
+            <h1>AI PM Journey</h1>
+            <p class="subtitle">新时代懂技术的 PM · 技术力 + 产品力 = 竞争力</p>
             <nav class="header-nav">
+                <div class="path-switcher">
+                    <button class="path-btn active" onclick="app.switchPath('all')">全部</button>
+                    <button class="path-btn" onclick="app.switchPath('tech')">🛠️ 技术</button>
+                    <button class="path-btn" onclick="app.switchPath('pm')">💼 PM</button>
+                </div>
                 <button class="nav-btn active" onclick="app.showModules()">📚 学习</button>
                 <button class="nav-btn" onclick="app.showConfig()">⚙️ 配置</button>
             </nav>
@@ -91,7 +96,7 @@
                 <div class="tutor-container">
                     <div class="chat-messages" id="chat-messages">
                         <div class="message ai-message">
-                            <p>你好！我是你的 AI 辅导老师。有什么关于 Claude Code 的问题都可以问我。</p>
+                            <p>你好！我是 AI PM Journey 的学习助手。有什么关于 AI 工具、PM 技能或产品设计的问题都可以问我。</p>
                         </div>
                     </div>
                     <div class="chat-input">
@@ -118,7 +123,7 @@
         </main>
 
         <footer class="footer">
-            <p>基于 <a href="https://github.com/affaan-m/everything-claude-code" target="_blank">everything-claude-code</a> 项目</p>
+            <p>AI PM Journey · 技术与产品的融合之路</p>
         </footer>
     </div>
 
