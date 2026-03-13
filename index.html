@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Code 学习系统 - 掌握学习法</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Claude Code 学习系统</h1>
+            <p class="subtitle">掌握学习法：学 → 测 → 补漏 → 再测 → 全掌握</p>
+            <nav class="header-nav">
+                <button class="nav-btn active" onclick="app.showModules()">📚 学习</button>
+                <button class="nav-btn" onclick="app.showConfig()">⚙️ 配置</button>
+            </nav>
+            <div class="overall-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="overall-progress"></div>
+                </div>
+                <span class="progress-text" id="progress-text">0% 已掌握</span>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section id="modules-view" class="view active">
+                <h2>选择学习模块</h2>
+                <div class="category-tabs" id="category-tabs"></div>
+                <div class="module-grid" id="module-grid"></div>
+            </section>
+
+            <section id="learn-view" class="view">
+                <button class="back-btn" onclick="app.showModules()">← 返回模块列表</button>
+                <div class="learn-layout">
+                    <nav class="content-nav" id="content-nav">
+                        <div class="nav-header">📑 内容导航</div>
+                        <ul class="nav-list" id="nav-list"></ul>
+                    </nav>
+                    <div class="learn-content">
+                        <div class="module-header">
+                            <h2 id="learn-title"></h2>
+                            <span class="module-level" id="learn-level"></span>
+                        </div>
+                        <div class="knowledge-points" id="knowledge-points"></div>
+                        <div class="learn-actions">
+                            <button class="btn btn-primary" onclick="app.startQuiz()">开始测试</button>
+                            <button class="btn btn-secondary" onclick="app.askTutor()">问 AI 辅导</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="quiz-view" class="view">
+                <div class="quiz-header">
+                    <span class="quiz-progress" id="quiz-progress">问题 1/5</span>
+                </div>
+                <div class="quiz-content">
+                    <div class="question-card">
+                        <h3 id="question-text"></h3>
+                        <div class="options" id="options"></div>
+                    </div>
+                    <div class="quiz-actions">
+                        <button class="btn btn-primary" id="submit-answer" onclick="app.submitAnswer()" disabled>提交答案</button>
+                        <button class="btn btn-secondary" id="next-question" onclick="app.nextQuestion()" style="display:none">下一题</button>
+                    </div>
+                </div>
+                <div class="quiz-feedback" id="quiz-feedback" style="display:none">
+                    <div class="feedback-content" id="feedback-content"></div>
+                </div>
+            </section>
+
+            <section id="result-view" class="view">
+                <div class="result-card">
+                    <h2>测试结果</h2>
+                    <div class="score-display">
+                        <span class="score" id="score">0</span>
+                        <span class="score-total">/5</span>
+                    </div>
+                    <div class="result-analysis" id="result-analysis"></div>
+                    <div class="result-actions">
+                        <button class="btn btn-primary" onclick="app.reviewWrongAnswers()">复习错题</button>
+                        <button class="btn btn-secondary" onclick="app.retakeQuiz()">重新测试</button>
+                        <button class="btn btn-outline" onclick="app.showModules()">返回模块列表</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tutor-view" class="view">
+                <button class="back-btn" onclick="app.backFromTutor()">← 返回</button>
+                <div class="tutor-container">
+                    <div class="chat-messages" id="chat-messages">
+                        <div class="message ai-message">
+                            <p>你好！我是你的 AI 辅导老师。有什么关于 Claude Code 的问题都可以问我。</p>
+                        </div>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" id="user-question" placeholder="输入你的问题..." onkeypress="if(event.key==='Enter')app.sendQuestion()">
+                        <button class="btn btn-primary" onclick="app.sendQuestion()">发送</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="review-view" class="view">
+                <button class="back-btn" onclick="app.showModules()">← 返回模块列表</button>
+                <div class="review-content">
+                    <h2>错题复习</h2>
+                    <div class="wrong-answers" id="wrong-answers"></div>
+                    <div class="review-actions">
+                        <button class="btn btn-primary" onclick="app.retakeQuiz()">再次测试</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="config-view" class="view">
+                <div class="config-content" id="config-content"></div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>基于 <a href="https://github.com/affaan-m/everything-claude-code" target="_blank">everything-claude-code</a> 项目</p>
+        </footer>
+    </div>
+
+    <div class="modal" id="api-modal">
+        <div class="modal-content">
+            <h3>设置智谱 API Key</h3>
+            <p>为了使用 AI 辅导功能，请输入你的智谱 API Key。</p>
+            <input type="password" id="api-key-input" placeholder="输入智谱 API Key">
+            <div class="modal-actions">
+                <button class="btn btn-outline" onclick="app.closeApiModal()">取消</button>
+                <button class="btn btn-primary" onclick="app.saveApiKey()">保存</button>
+            </div>
+            <p class="api-note">API Key 保存在本地浏览器中<br><a href="https://open.bigmodel.cn/" target="_blank">获取智谱 API Key</a></p>
+        </div>
+    </div>
+
+    <div class="modal" id="refresh-modal">
+        <div class="modal-content">
+            <h3>如何更新配置数据</h3>
+            <p>由于浏览器安全限制，网页无法直接读取系统文件。要更新配置数据：</p>
+            <ol class="refresh-steps">
+                <li>在 Claude Code 中说 <strong>"更新配置数据"</strong></li>
+                <li>Claude 会扫描你的 ~/.claude/ 目录</li>
+                <li>生成新的 config-data.js 文件</li>
+                <li>刷新本页面即可看到最新数据</li>
+            </ol>
+            <div class="modal-actions">
+                <button class="btn btn-primary" onclick="ConfigApp.closeRefreshModal()">我知道了</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/storage.js"></script>
+    <script src="js/quiz.js"></script>
+    <script src="js/tutor.js"></script>
+    <!-- content-data.js 已内嵌到 app.js 中，避免重复定义 -->
+    <script src="data/rules.js"></script>
+    <script src="data/agents.js"></script>
+    <script src="data/skills.js"></script>
+    <script src="data/commands.js"></script>
+    <script src="data/hooks.js"></script>
+    <script src="js/config-app.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

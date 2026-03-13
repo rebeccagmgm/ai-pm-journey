@@ -1,0 +1,48 @@
+// data/commands.js - Commands 配置内容（含中文说明）
+// 最后更新: 2026-03-11
+
+const CommandsData = {
+    lastUpdate: "2026-03-11 23:55",
+    items: [
+        { name: "build-fix", description: "构建修复", summary: "修复构建错误、TypeScript错误、linter警告" },
+        { name: "checkpoint", description: "检查点", summary: "创建会话检查点，保存当前状态" },
+        { name: "claw", description: "NanoClaw REPL", summary: "启动持久化零依赖REPL，支持模型路由和分支" },
+        { name: "code-review", description: "代码审查", summary: "对代码变更进行全面审查" },
+        { name: "e2e", description: "E2E 测试", summary: "使用Playwright生成和运行端到端测试" },
+        { name: "eval", description: "评估", summary: "运行评估套件" },
+        { name: "evolve", description: "进化分析", summary: "分析本能并建议或生成进化结构" },
+        { name: "go-build", description: "Go 构建", summary: "修复Go构建错误、go vet警告、linter问题" },
+        { name: "go-review", description: "Go 审查", summary: "Go代码全面审查" },
+        { name: "go-test", description: "Go 测试", summary: "Go TDD工作流，表驱动测试，80%+覆盖率" },
+        { name: "harness-audit", description: "Harness 审计", summary: "审计Agent Harness配置" },
+        { name: "instinct-export", description: "本能导出", summary: "将本能从项目/全局范围导出到文件" },
+        { name: "instinct-import", description: "本能导入", summary: "从文件或URL导入本能到项目/全局范围" },
+        { name: "instinct-status", description: "本能状态", summary: "显示已学习的本能（项目+全局）及其置信度" },
+        { name: "learn-eval", description: "学习评估", summary: "从会话提取可复用模式，自评质量后保存" },
+        { name: "learn", description: "学习模式", summary: "从会话中提取可复用模式" },
+        { name: "loop-start", description: "循环启动", summary: "启动循环任务" },
+        { name: "loop-status", description: "循环状态", summary: "查看循环任务状态" },
+        { name: "model-route", description: "模型路由", summary: "配置模型路由规则" },
+        { name: "multi-backend", description: "多模型后端", summary: "多模型协作开发 - 后端专注" },
+        { name: "multi-execute", description: "多模型执行", summary: "多模型协作执行" },
+        { name: "multi-frontend", description: "多模型前端", summary: "多模型协作开发 - 前端专注" },
+        { name: "multi-plan", description: "多模型计划", summary: "多模型协作规划" },
+        { name: "multi-workflow", description: "多模型工作流", summary: "多模型协作开发工作流" },
+        { name: "orchestrate", description: "编排", summary: "编排多Agent工作流" },
+        { name: "plan", description: "计划", summary: "重述需求、评估风险、创建步骤计划，等待确认" },
+        { name: "pm2", description: "PM2 初始化", summary: "初始化PM2进程管理" },
+        { name: "projects", description: "项目列表", summary: "列出已知项目及其本能统计" },
+        { name: "promote", description: "提升", summary: "将项目范围的本能提升到全局范围" },
+        { name: "python-review", description: "Python 审查", summary: "Python代码全面审查" },
+        { name: "quality-gate", description: "质量门", summary: "运行质量门检查" },
+        { name: "refactor-clean", description: "重构清理", summary: "清理死代码和重复代码" },
+        { name: "sessions", description: "会话", summary: "列出和管理会话" },
+        { name: "setup-pm", description: "PM 设置", summary: "设置包管理器" },
+        { name: "skill-create", description: "Skill 创建", summary: "从本地git历史分析编码模式并生成SKILL.md" },
+        { name: "tdd", description: "TDD", summary: "强制测试驱动开发工作流，80%+覆盖率" },
+        { name: "test-coverage", description: "测试覆盖率", summary: "检查测试覆盖率" },
+        { name: "update-codemaps", description: "更新代码地图", summary: "更新项目代码地图" },
+        { name: "update-docs", description: "更新文档", summary: "更新项目文档" },
+        { name: "verify", description: "验证", summary: "运行验证循环" }
+    ]
+};
