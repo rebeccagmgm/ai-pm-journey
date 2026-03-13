@@ -31,23 +31,23 @@ const ConfigApp = {
             </div>
 
             <div class="config-summary">
-                <div class="summary-card active" onclick="ConfigApp.showSection('rules')">
+                <div class="summary-card active" onclick="ConfigApp.showSection('rules', this)">
                     <span class="summary-count">${summary.rules}</span>
                     <span class="summary-label">Rules</span>
                 </div>
-                <div class="summary-card" onclick="ConfigApp.showSection('agents')">
+                <div class="summary-card" onclick="ConfigApp.showSection('agents', this)">
                     <span class="summary-count">${summary.agents}</span>
                     <span class="summary-label">Agents</span>
                 </div>
-                <div class="summary-card" onclick="ConfigApp.showSection('skills')">
+                <div class="summary-card" onclick="ConfigApp.showSection('skills', this)">
                     <span class="summary-count">${summary.skills}</span>
                     <span class="summary-label">Skills</span>
                 </div>
-                <div class="summary-card" onclick="ConfigApp.showSection('commands')">
+                <div class="summary-card" onclick="ConfigApp.showSection('commands', this)">
                     <span class="summary-count">${summary.commands}</span>
                     <span class="summary-label">Commands</span>
                 </div>
-                <div class="summary-card" onclick="ConfigApp.showSection('hooks')">
+                <div class="summary-card" onclick="ConfigApp.showSection('hooks', this)">
                     <span class="summary-count">${summary.hooks}</span>
                     <span class="summary-label">Hooks</span>
                 </div>
@@ -129,15 +129,18 @@ const ConfigApp = {
     },
 
     // 显示特定部分
-    showSection(section) {
+    showSection(section, card) {
         const container = document.getElementById('config-details');
         container.innerHTML = this.renderSection(section);
 
         // 更新选中状态
         document.querySelectorAll('.summary-card').forEach(card => {
             card.classList.remove('active');
+            // 找到被点击的卡片
+            if (card === card) {
+                card.classList.add('active');
+            }
         });
-        event.currentTarget.classList.add('active');
     },
 
     // 展开/收起项目
