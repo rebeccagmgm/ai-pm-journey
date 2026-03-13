@@ -129,15 +129,14 @@ const ConfigApp = {
     },
 
     // 显示特定部分
-    showSection(section, card) {
+    showSection(section, clickedCard) {
         const container = document.getElementById('config-details');
         container.innerHTML = this.renderSection(section);
 
         // 更新选中状态
         document.querySelectorAll('.summary-card').forEach(card => {
             card.classList.remove('active');
-            // 找到被点击的卡片
-            if (card === card) {
+            if (card === clickedCard) {
                 card.classList.add('active');
             }
         });

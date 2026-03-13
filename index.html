@@ -12,11 +12,6 @@
             <h1>AI PM Journey</h1>
             <p class="subtitle">新时代懂技术的 PM · 技术力 + 产品力 = 竞争力</p>
             <nav class="header-nav">
-                <div class="path-switcher">
-                    <button class="path-btn active" onclick="app.switchPath('all')">全部</button>
-                    <button class="path-btn" onclick="app.switchPath('tech')">🛠️ 技术</button>
-                    <button class="path-btn" onclick="app.switchPath('pm')">💼 PM</button>
-                </div>
                 <button class="nav-btn active" onclick="app.showModules()">📚 学习</button>
                 <button class="nav-btn" onclick="app.showConfig()">⚙️ 配置</button>
             </nav>
@@ -30,7 +25,14 @@
 
         <main class="main-content">
             <section id="modules-view" class="view active">
-                <h2>选择学习模块</h2>
+                <div class="modules-header">
+                    <h2>选择学习模块</h2>
+                    <div class="path-switcher path-switcher-dark">
+                        <button class="path-btn active" onclick="app.switchPath('all')">全部</button>
+                        <button class="path-btn" onclick="app.switchPath('tech')">🛠️ 技术</button>
+                        <button class="path-btn" onclick="app.switchPath('pm')">💼 PM</button>
+                    </div>
+                </div>
                 <div class="category-tabs" id="category-tabs"></div>
                 <div class="module-grid" id="module-grid"></div>
             </section>

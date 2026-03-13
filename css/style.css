@@ -503,11 +503,32 @@ body {
     background: rgba(255,255,255,0.1);
     padding: 4px;
     border-radius: 24px;
-    margin-right: 15px;
+}
+
+/* Dark version - 用于内容区域 */
+.path-switcher-dark {
+    background: var(--bg);
+    padding: 8px 12px;
+    border-radius: 24px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border);
+}
+
+.path-switcher-dark .path-btn {
+    color: var(--text);
+}
+
+.path-switcher-dark .path-btn:hover {
+    background: rgba(124, 58, 237, 0.1);
+}
+
+.path-switcher-dark .path-btn.active {
+    background: var(--primary);
+    color: white;
 }
 
 .path-btn {
-    padding: 8px 16px;
+    padding: 10px 20px;
     border: none;
     background: transparent;
     color: rgba(255,255,255,0.8);
@@ -523,9 +544,21 @@ body {
 }
 
 .path-btn.active {
-    background: white;
-    color: var(--primary);
+    background: var(--primary);
+    color: white;
     font-weight: 600;
+}
+
+/* Modules Header */
+.modules-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modules-header h2 {
+    margin: 0;
 }
 
 .nav-btn {
